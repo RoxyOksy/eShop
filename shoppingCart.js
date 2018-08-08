@@ -56,7 +56,6 @@ function showShoppingCart(goods){
 }
 
 function isEmpty(obj) {
-    console.log(obj);
     for (var key in obj) {
         if (obj.hasOwnProperty(key)) {            
             return false;
@@ -81,7 +80,6 @@ function addListener () {
 function getClick(target){    
     var button = target.parentNode.querySelector('.shoppingCart button');
     deleteItem(button);
-
 }
 
 function deleteItem(button) {
