@@ -42,7 +42,9 @@ function showShoppingCart(goods){
             result += `<button data-id="${key}" style="color: red">x</button>`;
             result += `<img src="${goods[key].img}" alt="${goods[key].name}">`;
             result += `<span>${goods[key].name}</span>`;
+            result += `<button name="minus" data-id="${key}" style="color: blue">-</button>`;
             result += `<span>${cart[key]}</span>`;
+            result += `<button name="plus" data-id="${key}" style="color: blue">+</button>`;
             result += `</p>`;
         }
     }
@@ -50,7 +52,7 @@ function showShoppingCart(goods){
     showResult(result, '.shoppingCart');
     showResult('<a href="main.html">Continue shopping</a>', 'header');
 
-    addListener();
+    addListener();// наблюдаем за кнопками
     
     return result;
 }
@@ -77,9 +79,31 @@ function addListener () {
     };
 }
 
-function getClick(target){    
-    var button = target.parentNode.querySelector('.shoppingCart button');
-    deleteItem(button);
+function getClick(button){    
+    if (button.name == 'minus') {
+        reduceItems(button);
+    } else if (button.name == 'plus'){
+        increaseItems(button);
+    } else deleteItem(button);
+}
+
+function reduceItems(button) {
+    var id = button.getAttribute('data-id');
+    if (cart[id] === 1) {
+        deleteItem(button);
+    } else {
+        cart[id]--;
+        saveToCart();
+        loadCart();
+    }
+    
+}
+
+function increaseItems(button) {
+    var id = button.getAttribute('data-id');
+    cart[id]++;        
+    saveToCart();
+    loadCart();   
 }
 
 function deleteItem(button) {

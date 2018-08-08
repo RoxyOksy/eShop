@@ -11,7 +11,7 @@ window.onload = function () {
                 var goods = JSON.parse (this.responseText);                
                 showGoods(goods);
             } else {
-                console.log ('Some error has happend');
+                console.log ('Some error has occurred. Please, try again');
             }
         }
     }
