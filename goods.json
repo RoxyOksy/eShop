@@ -1,0 +1,20 @@
+{
+    "001": {
+        "name": "Spidermen",
+        "price": "1",
+        "description": "fits for boys",
+        "img": "./images/img1.png"
+    },
+    "002": {
+        "name": "Captain America",
+        "price": "1",
+        "description": "fits for boys",
+        "img": "./images/img2.png"
+    },
+    "003": {
+        "name": "Minion",
+        "price": "1",
+        "description": "fits for girls and boys",
+        "img": "./images/img3.png"
+    }
+}
